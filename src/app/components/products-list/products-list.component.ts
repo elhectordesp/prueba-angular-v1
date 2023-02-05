@@ -121,25 +121,12 @@ export class ProductsListComponent implements OnInit {
       size: 'lg',
     });
 
-    console.log(this.columnDefs);
-
-    modal.componentInstance.filas = this.columnDefs;
+    modal.componentInstance.filasIni = this.columnDefs;
 
     modal.result.then(
       (result: any) => {
         if (result) {
-          console.log(result);
           this.columnDefs = [];
-          result.sort(function (a: { order: number }, b: { order: number }) {
-            if (a.order > b.order) {
-              return 1;
-            }
-            if (a.order < b.order) {
-              return -1;
-            }
-            // a must be equal to b
-            return 0;
-          });
           for (const iterator of result) {
             let objeto = {};
             objeto = iterator;
@@ -157,7 +144,9 @@ export class ProductsListComponent implements OnInit {
           this.gridApi.sizeColumnsToFit();
         }
       },
-      (error) => {}
+      (error) => {
+        console.log(error);
+      }
     );
   }
 }
