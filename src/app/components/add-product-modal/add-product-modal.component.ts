@@ -30,7 +30,13 @@ export class AddProductModalComponent {
   }
 
   submitForm() {
-    console.log(this.newProductForm.valid);
-    console.log(this.newProductForm.controls);
+    if (this.newProductForm.valid) {
+      this.activeModal.close({
+        name: this.newProductForm.controls.name.value,
+        price: this.newProductForm.controls.price.value,
+        format: this.newProductForm.controls.format.value,
+        brand: this.newProductForm.controls.brand.value,
+      });
+    }
   }
 }

@@ -22,5 +22,5 @@
       [rowData]="rowData"
     ></ag-grid-angular>
   </div>
-  <app-footer></app-footer>
+  <app-footer (createEventEmitter)="createProduct($event)"></app-footer>
 </div>

@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { AgGridAngular } from 'ag-grid-angular/public-api';
 import {
   FirstDataRenderedEvent,
+  GridApi,
   GridOptions,
 } from 'ag-grid-community/dist/lib/main';
 import { ButtonCellRendererComponent } from '../button-cell-renderer/button-cell-renderer.component';
@@ -17,6 +18,7 @@ import { RemoveProductModalComponent } from '../remove-product-modal/remove-prod
   styleUrls: ['./products-list.component.scss'],
 })
 export class ProductsListComponent implements OnInit {
+  gridApi!: GridApi;
   logged = true;
   rowData: any;
   paginationPageSize = 10;
@@ -69,6 +71,7 @@ export class ProductsListComponent implements OnInit {
   }
 
   onGridReady(params: GridReadyEvent) {
+    this.gridApi = params.api;
     this.api = params.api;
     params.api.sizeColumnsToFit();
   }
@@ -103,5 +106,12 @@ export class ProductsListComponent implements OnInit {
         );
       }
     });
+  }
+
+  createProduct(event: any) {
+    console.log(this.rowData.length);
+    event.id = this.rowData.length + 1;
+    this.rowData.push(event);
+    this.api.setRowData(this.rowData);
   }
 }
