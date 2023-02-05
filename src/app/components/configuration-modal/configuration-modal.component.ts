@@ -8,11 +8,12 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class ConfigurationModalComponent implements OnInit {
   filas: any = [];
+  filasIni: any = [];
 
   constructor(public activeModal: NgbActiveModal) {}
 
   ngOnInit(): void {
-    console.log(this.filas);
+    this.filas = this.filasIni;
     let contador = 1;
     for (let it of this.filas) {
       it.order = contador;
@@ -43,13 +44,9 @@ export class ConfigurationModalComponent implements OnInit {
   }
 
   subir(i: number, fila: any) {
-    console.log(fila);
     for (const [index, filaR] of this.filas.entries()) {
       if (filaR.headerName === fila.headerName) {
-        console.log(filaR);
         filaR.order--;
-        console.log(this.filas);
-        console.log(index);
         this.filas[index - 1].order++;
       }
     }
@@ -63,8 +60,24 @@ export class ConfigurationModalComponent implements OnInit {
       // a must be equal to b
       return 0;
     });
-    console.log(this.filas);
   }
 
-  bajar(i: number, fila: any) {}
+  bajar(i: number, fila: any) {
+    for (const [index, filaR] of this.filas.entries()) {
+      if (filaR.headerName === fila.headerName) {
+        filaR.order++;
+        this.filas[index + 1].order--;
+      }
+    }
+    this.filas.sort(function (a: { order: number }, b: { order: number }) {
+      if (a.order > b.order) {
+        return 1;
+      }
+      if (a.order < b.order) {
+        return -1;
+      }
+      // a must be equal to b
+      return 0;
+    });
+  }
 }

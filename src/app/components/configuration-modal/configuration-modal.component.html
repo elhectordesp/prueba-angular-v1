@@ -3,7 +3,7 @@
     <div class="col-11">
       Reordenar, fijar u ocultar las columnas de la tabla
     </div>
-    <div class="col-1" (click)="activeModal.close(false)">
+    <div class="col-1" (click)="aplicar()">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="16"
@@ -114,9 +114,7 @@
       </div>
     </div>
     <div class="d-flex justify-content-end mt-2">
-      <button type="button" class="btn" (click)="activeModal.close(false)">
-        Cancelar
-      </button>
+      <button type="button" class="btn" (click)="aplicar()">Cancelar</button>
       <button
         type="button"
         class="btn"
