@@ -10,6 +10,8 @@ import { RemoveProductModalComponent } from './components/remove-product-modal/r
 import { AddProductModalComponent } from './components/add-product-modal/add-product-modal.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './components/footer/footer.component';
+import { ProductsListComponent } from './components/products-list/products-list.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,8 +22,14 @@ import { FooterComponent } from './components/footer/footer.component';
     RemoveProductModalComponent,
     AddProductModalComponent,
     FooterComponent,
+    ProductsListComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
