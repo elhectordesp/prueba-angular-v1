@@ -28,10 +28,5 @@ export class HomeComponent implements OnInit {
     if (this.logged) {
       this.router.navigate(['spinner']);
     }
-
-    this.modal.open(AddProductModalComponent, {
-      size: 'lg',
-      centered: true,
-    });
   }
 }

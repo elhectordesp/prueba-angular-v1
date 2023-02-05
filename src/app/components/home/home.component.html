@@ -1,7 +1,7 @@
 <div style="height: 100vh">
-  <app-header (loggedEventEmitter)="receiveLoggedEvent($event)"></app-header>
-  <div style="height: 100%">
-    <div class="row" style="height: 100%">
+  <div style="height: 100vh">
+    <app-header (loggedEventEmitter)="receiveLoggedEvent($event)"></app-header>
+    <div class="row" style="height: 80vh">
       <div class="col-4" style="display: flex; justify-content: center">
         <h2 style="margin-top: 3rem">Bienvenido</h2>
       </div>
@@ -55,5 +55,6 @@
       </div>
       <div class="col-4"></div>
     </div>
+    <app-footer></app-footer>
   </div>
 </div>

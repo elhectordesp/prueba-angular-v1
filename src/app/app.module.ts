@@ -9,6 +9,7 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
 import { RemoveProductModalComponent } from './components/remove-product-modal/remove-product-modal.component';
 import { AddProductModalComponent } from './components/add-product-modal/add-product-modal.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     SpinnerComponent,
     RemoveProductModalComponent,
     AddProductModalComponent,
+    FooterComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
   providers: [],
