@@ -7,6 +7,8 @@ import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { RemoveProductModalComponent } from './components/remove-product-modal/remove-product-modal.component';
+import { AddProductModalComponent } from './components/add-product-modal/add-product-modal.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,13 +16,11 @@ import { RemoveProductModalComponent } from './components/remove-product-modal/r
     HomeComponent,
     HeaderComponent,
     SpinnerComponent,
-    RemoveProductModalComponent
+    RemoveProductModalComponent,
+    AddProductModalComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

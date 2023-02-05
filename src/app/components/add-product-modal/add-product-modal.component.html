@@ -1,0 +1,115 @@
+<div class="modal-body">
+  <div><h4>Nuevo producto</h4></div>
+  <form [formGroup]="newProductForm" class="mb-3" (ngSubmit)="submitForm()">
+    <div class="d-flex mb-3" style="flex-direction: column">
+      <label for="name">Nombre</label>
+      <input
+        class="form-control"
+        type="text"
+        id="name"
+        formControlName="name"
+      />
+    </div>
+    <div class="d-flex row mb-3">
+      <div class="d-flex col-6" style="flex-direction: column">
+        <label for="price">Precio</label>
+        <div class="input-group mb-3">
+          <button
+            style="border: none"
+            (click)="changePrice(true)"
+            cButton
+            color="secondary"
+            type="button"
+            variant="outline"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-dash"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"
+              />
+            </svg>
+          </button>
+          <input
+            [ngModel]="product.price"
+            style="text-align: center"
+            class="form-control"
+            id="price"
+            formControlName="price"
+          />
+          <button
+            (click)="changePrice(false)"
+            cButton
+            color="secondary"
+            type="button"
+            variant="outline"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-plus"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="d-flex col-6" style="flex-direction: column">
+        <label for="format">Formato</label>
+        <select
+          id="format"
+          class="form-select"
+          formControlName="format"
+          aria-label="Default select example"
+        >
+          <option value="black">Black</option>
+          <option value="azure">Azure</option>
+          <option value="gold">Gold</option>
+          <option value="orange">Orange</option>
+          <option value="magenta">Magenta</option>
+          <option value="olive">Olive</option>
+          <option value="orchid">Orchid</option>
+          <option value="azure">Azure</option>
+          <option value="purple">Purple</option>
+        </select>
+      </div>
+    </div>
+    <div class="d-flex mb-3" style="flex-direction: column">
+      <label for="brand">Marca</label>
+      <input
+        class="form-control"
+        type="text"
+        id="brand"
+        formControlName="brand"
+      />
+    </div>
+  </form>
+  <div class="d-flex mt-3" style="justify-content: space-between">
+    <button
+      style="background-color: #51565a; color: white"
+      type="button"
+      class="btn"
+      (click)="activeModal.close('Close click')"
+    >
+      Cancelar
+    </button>
+    <button
+      type="button"
+      class="btn"
+      style="background-color: #3a7e45; color: white"
+      (click)="submitForm()"
+    >
+      Guardar
+    </button>
+  </div>
+</div>

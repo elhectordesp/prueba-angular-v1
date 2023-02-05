@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { AddProductModalComponent } from '../add-product-modal/add-product-modal.component';
 import { RemoveProductModalComponent } from '../remove-product-modal/remove-product-modal.component';
 
 @Component({
@@ -28,8 +29,8 @@ export class HomeComponent implements OnInit {
       this.router.navigate(['spinner']);
     }
 
-    this.modal.open(RemoveProductModalComponent, {
-      size: 'md',
+    this.modal.open(AddProductModalComponent, {
+      size: 'lg',
       centered: true,
     });
   }
