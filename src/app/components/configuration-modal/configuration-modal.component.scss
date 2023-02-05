@@ -1,3 +1,23 @@
+$grey: #f2f4f8;
+$verde: #3a7e45;
+
 .hidden {
     visibility: hidden;
+}
+
+.grupoColumnas {
+    padding-left: 2rem;
+}
+
+.grupoFilas {
+    width: 60%; border-bottom: 1px solid $grey;
+}
+
+.filaOrder {
+    background-color: $grey;
+}
+
+.botonAplicar {
+    color: white;
+    background-color: $verde;
 }

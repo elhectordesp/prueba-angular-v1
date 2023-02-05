@@ -1,3 +1,26 @@
 html {
     height: 100%;
 }
+
+button {
+    height: 70%;
+                  width: 40%;
+                  background-color: #3a7e45;
+                  border: none;
+                  color: white;
+                  display: flex;
+                  justify-content: space-evenly;
+                  align-items: center;
+}
+
+.contenedorBoton {
+    height: 3rem; align-items: center
+}
+
+.contenedorCard {
+    align-items: center; height: 100%
+}
+
+.card {
+    width: 18rem; background-color: #f2f4f8
+}

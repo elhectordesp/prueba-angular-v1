@@ -1,0 +1,10 @@
+$red: #aa2223;
+
+.contenedor {
+    border-top: 3px solid $red
+}
+
+.botonEliminar {
+    background-color: $red;
+    color: white;
+}

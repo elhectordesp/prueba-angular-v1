@@ -11,10 +11,6 @@ html, body {
     -webkit-overflow-scrolling: touch;
 }
 
-
-// Variables de color
-$verde: #3A7E45;
-
 app-spinner {
     position: fixed;
     margin: 0 auto;
@@ -22,4 +18,8 @@ app-spinner {
     height: 100%;
     top:0;
     background: #fff;
+}
+
+.contenedorGlobal {
+    height: 100%;
 }
