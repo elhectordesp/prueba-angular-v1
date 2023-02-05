@@ -137,16 +137,14 @@ export class ProductsListComponent implements OnInit {
             cellRenderer: 'buttonRenderer',
             cellRendererParams: {
               onclick: this.onDeleteButtonClick.bind(this),
-              label: 'hola',
+              label: '',
             },
           });
           this.gridApi.setColumnDefs(this.columnDefs);
           this.gridApi.sizeColumnsToFit();
         }
       },
-      (error) => {
-        console.log(error);
-      }
+      (error) => {}
     );
   }
 }

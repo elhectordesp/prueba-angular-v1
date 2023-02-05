@@ -19,6 +19,7 @@ export class AddProductModalComponent {
   constructor(public activeModal: NgbActiveModal, private fb: FormBuilder) {}
 
   changePrice(less: boolean) {
+    // Sumamos o restamos de 0.1 en 0.1
     if (less) {
       this.product.price =
         this.product.price > 0
@@ -30,6 +31,7 @@ export class AddProductModalComponent {
   }
 
   submitForm() {
+    // Si es válido (todos los campos rellenos) se envía al componente principal
     if (this.newProductForm.valid) {
       this.activeModal.close({
         name: this.newProductForm.controls.name.value,

@@ -80,4 +80,6 @@ export class ConfigurationModalComponent implements OnInit {
       return 0;
     });
   }
+
+  // Aquí iría el apartado de fijar pero no sabía exactamente que es lo que tenía que suceder con este botón
 }

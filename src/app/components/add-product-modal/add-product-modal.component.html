@@ -1,7 +1,7 @@
 <div class="modal-body">
   <div><h4>Nuevo producto</h4></div>
   <form [formGroup]="newProductForm" class="mb-3" (ngSubmit)="submitForm()">
-    <div class="d-flex mb-3" style="flex-direction: column">
+    <div class="d-flex mb-3 flex-column">
       <label for="name">Nombre</label>
       <input
         class="form-control"
@@ -11,11 +11,10 @@
       />
     </div>
     <div class="d-flex row mb-3">
-      <div class="d-flex col-6" style="flex-direction: column">
+      <div class="d-flex col-6 flex-column">
         <label for="price">Precio</label>
         <div class="input-group mb-3">
           <button
-            style="border: none"
             (click)="changePrice(true)"
             cButton
             color="secondary"
@@ -37,8 +36,7 @@
           </button>
           <input
             [ngModel]="product.price"
-            style="text-align: center"
-            class="form-control"
+            class="form-control text-center"
             id="price"
             formControlName="price"
           />
@@ -64,7 +62,7 @@
           </button>
         </div>
       </div>
-      <div class="d-flex col-6" style="flex-direction: column">
+      <div class="d-flex col-6 flex-column">
         <label for="format">Formato</label>
         <select
           id="format"
@@ -84,7 +82,7 @@
         </select>
       </div>
     </div>
-    <div class="d-flex mb-3" style="flex-direction: column">
+    <div class="d-flex mb-3 flex-column">
       <label for="brand">Marca</label>
       <input
         class="form-control"
@@ -94,21 +92,15 @@
       />
     </div>
   </form>
-  <div class="d-flex mt-3" style="justify-content: space-between">
+  <div class="botonerFooter">
     <button
-      style="background-color: #51565a; color: white"
       type="button"
-      class="btn"
+      class="btn greyButton"
       (click)="activeModal.close('Close click')"
     >
       Cancelar
     </button>
-    <button
-      type="button"
-      class="btn"
-      style="background-color: #3a7e45; color: white"
-      (click)="submitForm()"
-    >
+    <button type="button" class="btn greenButton" (click)="submitForm()">
       Guardar
     </button>
   </div>

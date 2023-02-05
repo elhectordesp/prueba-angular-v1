@@ -1,3 +1,18 @@
 button {
     border: none;
+    color: white;
+}
+
+.greenButton {
+    background-color: #3a7e45;
+}
+
+.greyButton {
+    background-color: #51565a;
+}
+
+.botonerFooter {
+    display: flex;
+    margin-top: 3;
+    justify-content: space-between;
 }
