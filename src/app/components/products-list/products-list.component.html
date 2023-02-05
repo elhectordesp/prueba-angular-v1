@@ -18,7 +18,7 @@
           </select>
         </div>
 
-        <div>
+        <div style="color: #3a7e45">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -51,6 +51,12 @@
   </div>
   <app-footer
     (createEventEmitter)="createProduct($event)"
-    style="height: 10%"
+    style="
+      height: 10%;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: white;
+    "
   ></app-footer>
 </div>
