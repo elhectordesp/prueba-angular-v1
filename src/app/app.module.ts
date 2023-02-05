@@ -14,6 +14,7 @@ import { ProductsListComponent } from './components/products-list/products-list.
 import { HttpClientModule } from '@angular/common/http';
 import { AgGridModule } from 'ag-grid-angular';
 import { ButtonCellRendererComponent } from './components/button-cell-renderer/button-cell-renderer.component';
+import { ConfigurationModalComponent } from './components/configuration-modal/configuration-modal.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { ButtonCellRendererComponent } from './components/button-cell-renderer/b
     FooterComponent,
     ProductsListComponent,
     ButtonCellRendererComponent,
+    ConfigurationModalComponent,
   ],
   imports: [
     BrowserModule,

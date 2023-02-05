@@ -11,6 +11,7 @@ import {
 import { ButtonCellRendererComponent } from '../button-cell-renderer/button-cell-renderer.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { RemoveProductModalComponent } from '../remove-product-modal/remove-product-modal.component';
+import { ConfigurationModalComponent } from '../configuration-modal/configuration-modal.component';
 
 @Component({
   selector: 'app-products-list',
@@ -26,10 +27,10 @@ export class ProductsListComponent implements OnInit {
   api: any;
 
   public columnDefs: ColDef[] = [
-    { headerName: 'Nombre', field: 'name' },
-    { headerName: 'Precio', field: 'price' },
-    { headerName: 'Formato', field: 'format' },
-    { headerName: 'Marca', field: 'brand' },
+    { headerName: 'Nombre', field: 'name', sortable: true, hide: false },
+    { headerName: 'Precio', field: 'price', sortable: true, hide: false },
+    { headerName: 'Formato', field: 'format', sortable: true, hide: false },
+    { headerName: 'Marca', field: 'brand', sortable: true, hide: false },
     {
       headerName: 'Acciones',
       cellRenderer: 'buttonRenderer',
@@ -80,9 +81,7 @@ export class ProductsListComponent implements OnInit {
     this.logged = logged;
   }
 
-  deleteProduct(e: any) {
-    console.log(e);
-  }
+  deleteProduct(e: any) {}
 
   onFirstDataRendered(params: FirstDataRenderedEvent) {
     params.api.sizeColumnsToFit();
@@ -98,20 +97,67 @@ export class ProductsListComponent implements OnInit {
     const modal = this.modalService.open(RemoveProductModalComponent, {
       centered: true,
     });
-    modal.result.then((result: any) => {
-      if (result) {
-        console.log(result);
-        this.rowData = this.rowData.filter(
-          (row: any) => row.id !== params.data.id
-        );
-      }
-    });
+    modal.result.then(
+      (result: any) => {
+        if (result) {
+          this.rowData = this.rowData.filter(
+            (row: any) => row.id !== params.data.id
+          );
+        }
+      },
+      (error) => {}
+    );
   }
 
   createProduct(event: any) {
-    console.log(this.rowData.length);
     event.id = this.rowData.length + 1;
     this.rowData.push(event);
     this.api.setRowData(this.rowData);
+  }
+
+  openConfiguration() {
+    const modal = this.modalService.open(ConfigurationModalComponent, {
+      centered: true,
+      size: 'lg',
+    });
+
+    console.log(this.columnDefs);
+
+    modal.componentInstance.filas = this.columnDefs;
+
+    modal.result.then(
+      (result: any) => {
+        if (result) {
+          console.log(result);
+          this.columnDefs = [];
+          result.sort(function (a: { order: number }, b: { order: number }) {
+            if (a.order > b.order) {
+              return 1;
+            }
+            if (a.order < b.order) {
+              return -1;
+            }
+            // a must be equal to b
+            return 0;
+          });
+          for (const iterator of result) {
+            let objeto = {};
+            objeto = iterator;
+            this.columnDefs.push(objeto);
+          }
+          this.columnDefs.push({
+            headerName: 'Acciones',
+            cellRenderer: 'buttonRenderer',
+            cellRendererParams: {
+              onclick: this.onDeleteButtonClick.bind(this),
+              label: 'hola',
+            },
+          });
+          this.gridApi.setColumnDefs(this.columnDefs);
+          this.gridApi.sizeColumnsToFit();
+        }
+      },
+      (error) => {}
+    );
   }
 }
