@@ -12,6 +12,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './components/footer/footer.component';
 import { ProductsListComponent } from './components/products-list/products-list.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AgGridModule } from 'ag-grid-angular';
+import { ButtonCellRendererComponent } from './components/button-cell-renderer/button-cell-renderer.component';
 
 @NgModule({
   declarations: [
@@ -23,12 +25,14 @@ import { HttpClientModule } from '@angular/common/http';
     AddProductModalComponent,
     FooterComponent,
     ProductsListComponent,
+    ButtonCellRendererComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    AgGridModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

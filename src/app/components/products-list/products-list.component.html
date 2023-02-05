@@ -1,5 +1,26 @@
-<div>
+<div style="height: 100%">
   <app-header (loggedEventEmitter)="receiveLoggedEvent($event)"></app-header>
-  <div></div>
+
+  <div class="example-header">
+    Ítems por pagina
+    <select (change)="onPageSizeChanged()" id="page-size">
+      <option value="5">5</option>
+      <option selected value="10">10</option>
+      <option value="20">20</option>
+    </select>
+  </div>
+  <div class="d-flex justify-content-center" style="height: 90%">
+    <ag-grid-angular
+      style="width: 85vw; height: 70vh"
+      class="ag-theme-alpine mt-3"
+      (firstDataRendered)="onFirstDataRendered($event)"
+      (gridReady)="onGridReady($event)"
+      [pagination]="true"
+      [columnDefs]="columnDefs"
+      [frameworkComponents]="frameworkComponents"
+      [paginationPageSize]="paginationPageSize"
+      [rowData]="rowData"
+    ></ag-grid-angular>
+  </div>
   <app-footer></app-footer>
 </div>
