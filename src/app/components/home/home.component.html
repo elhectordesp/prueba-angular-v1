@@ -1,5 +1,5 @@
 <div style="height: 100vh">
-  <app-header></app-header>
+  <app-header (loggedEventEmitter)="receiveLoggedEvent($event)"></app-header>
   <div style="height: 100%">
     <div class="row" style="height: 100%">
       <div class="col-4" style="display: flex; justify-content: center">
@@ -22,6 +22,7 @@
               "
             >
               <button
+                (click)="revisar()"
                 style="
                   height: 70%;
                   width: 40%;
