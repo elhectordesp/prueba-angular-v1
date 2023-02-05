@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
+import { RemoveProductModalComponent } from './components/remove-product-modal/remove-product-modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     HeaderComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    RemoveProductModalComponent
   ],
   imports: [
     BrowserModule,

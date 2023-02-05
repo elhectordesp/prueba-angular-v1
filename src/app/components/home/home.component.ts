@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { RemoveProductModalComponent } from '../remove-product-modal/remove-product-modal.component';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +12,7 @@ export class HomeComponent implements OnInit {
   numTornillos = 100;
   logged = false;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private modal: NgbModal) {}
 
   ngOnInit(): void {
     const login = sessionStorage.getItem('login');
@@ -25,5 +27,10 @@ export class HomeComponent implements OnInit {
     if (this.logged) {
       this.router.navigate(['spinner']);
     }
+
+    this.modal.open(RemoveProductModalComponent, {
+      size: 'md',
+      centered: true,
+    });
   }
 }
